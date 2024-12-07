@@ -1,0 +1,46 @@
+﻿@page "/lockscreen"
+@layout Layout.AuthLayout
+
+
+
+
+  <div class="col-xl-4 col-lg-5 col-md-6">
+        <div class="card overflow-hidden text-center h-100 p-xxl-4 p-3 mb-0">
+            <a href="index-2.html" class="auth-brand mb-3">
+                <img src="assets/images/logo-dark.png" alt="dark logo" height="24" class="logo-dark">
+                <img src="assets/images/logo.png" alt="logo light" height="24" class="logo-light">
+            </a>
+
+            <div class="d-flex align-items-center gap-2 mb-4 text-start">
+                <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded img-thumbnail">
+                <div>
+                    <h3 class="fw-semibold text-dark">Hi ! Dhanoo K.</h3>
+                    <p class="mb-0">Please input your password to access the screen. </p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                <a href="#!" class="btn btn-soft-danger avatar-lg"><i class="ti ti-brand-google-filled fs-24"></i></a>
+                <a href="#!" class="btn btn-soft-success avatar-lg"><i class="ti ti-brand-apple fs-24"></i></a>
+                <a href="#!" class="btn btn-soft-primary avatar-lg"><i class="ti ti-brand-facebook fs-24"></i></a>
+                <a href="#!" class="btn btn-soft-info avatar-lg"><i class="ti ti-brand-linkedin fs-24"></i></a>
+            </div>
+            <p class="fs-13 fw-semibold">Or</p>
+
+            <form action="https://coderthemes.com/osen/layouts/index.html" class="text-start mb-3">
+                <div class="mb-3">
+                    <label class="form-label" for="lock-password">Enter Password</label>
+                    <input type="password" id="lock-password" name="lock-password" class="form-control" placeholder="Password">
+                </div>
+                <div class="mb-2 d-grid">
+                    <button class="btn btn-primary" type="submit">Access To Screen</button>
+                </div>
+            </form>
+            <p class="text-danger fs-14 mb-4">Back To <a href="auth-login.html" class="fw-semibold text-dark ms-1">Login !</a></p>
+
+            <p class="mt-auto mb-0">
+                <script>document.write(new Date().getFullYear())</script> © Osen - By <span class="fw-bold text-decoration-underline text-uppercase text-reset fs-12">Coderthemes</span>
+            </p>
+        </div>
+  </div>
+      
+

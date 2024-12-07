@@ -1,23 +1,47 @@
 ﻿@inherits LayoutComponentBase
+@* @rendermode InteractiveServer *@
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        
+        <!-- Sidenav Menu Start -->
+        <EasyERP.UI.Components.ChildComponents.Common.SideNavMenu />
+        <!-- Sidenav Menu End -->
+        
+
+        <!-- Topbar Start -->
+        <EasyERP.UI.Components.ChildComponents.Common.Topbar />
+        <!-- Topbar End -->
+
+
+        <!-- Search Modal -->
+        <EasyERP.UI.Components.ChildComponents.Common.SearchModal />
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <div class="page-content">
+
+            @Body
+
+            <!-- Footer Start -->
+            <EasyERP.UI.Components.ChildComponents.Common.Footer />
+            <!-- end Footer -->
+
         </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Theme Settings -->
+    <EasyERP.UI.Components.ChildComponents.Common.ThemeSettings />
+    
+
+
