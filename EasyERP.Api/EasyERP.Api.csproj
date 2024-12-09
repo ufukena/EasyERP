@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Service\" />
+    <ProjectReference Include="..\EasyERP.Application\EasyERP.Application.csproj" />
+    <ProjectReference Include="..\EasyERP.Domain\EasyERP.Domain.csproj" />
   </ItemGroup>
 
 </Project>

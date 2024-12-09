@@ -1,4 +1,10 @@
+using EasyERP.Application.Adapters;
+using System;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddTransient<ServiceBase>();
 
 // Add services to the container.
 

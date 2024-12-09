@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EasyERP.Application.Infrastructure.Contract;
+using EasyERP.Domain.Services.Models.Customers;
+
 
 namespace EasyERP.Application.Services.Contracts.Customers
 {
-    internal interface ICustomerRepository
+    public interface ICustomerRepository : ICRUDRepository<Customer>, IGetAllRepository<Customer>
     {
     }
 }
