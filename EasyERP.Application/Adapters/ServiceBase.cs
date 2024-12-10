@@ -1,6 +1,6 @@
 ﻿using EasyERP.Application.Context;
-using EasyERP.Application.Services.Contracts.Customers;
 using EasyERP.Application.Services.Repositories.Customers;
+using EasyERP.Contract.Services.Customers;
 
 namespace EasyERP.Application.Adapters
 {

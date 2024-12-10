@@ -1,10 +1,15 @@
+using EasyERP.Application.Http.Services.Repositories.Customers;
+using EasyERP.Contract.Services.Customers;
 using EasyERP.UI.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
+
+builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+
+
 
 var app = builder.Build();
 
@@ -21,7 +26,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+
 
 app.Run();

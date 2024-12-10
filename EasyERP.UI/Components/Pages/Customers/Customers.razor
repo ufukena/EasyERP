@@ -1,4 +1,9 @@
 ﻿@page "/customer"
+@inherits CustomersBase
+@attribute [StreamRendering(true)]
+@rendermode InteractiveServer
+@* @rendermode @(new InteractiveServerRenderMode(prerender: false)) *@
+
 
 <!-- Start Content-->
 <div class="page-container">
@@ -216,6 +221,31 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+                                @foreach (var item in customers)
+                                {
+                                    <tr>
+                                        <td class="ps-3">
+                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+                                        </td>
+                                        <td>@item.CustomerName</td>
+                                        <td>29</td>
+                                        <td>@item.CustomerAddress</td>
+                                        <td><img src="assets/images/users/avatar-2.jpg" alt="" class="avatar-sm rounded-circle me-2">Dr.Michael Smith</td>
+                                        <td>21/07/2024</td>
+                                        <td>09:00 am</td>
+                                        <td>+123456789</td>
+                                        <td>
+                                            <div class="hstack gap-1">
+                                                <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+
                                 <tr>
                                     <td class="ps-3">
                                         <input type="checkbox" class="form-check-input" id="customCheck2">
@@ -368,6 +398,10 @@
                                         </div>
                                     </td>
                                 </tr>
+
+                               
+
+
                             </tbody>
                         </table>
                     </div>

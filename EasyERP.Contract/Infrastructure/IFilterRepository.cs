@@ -1,6 +1,6 @@
 ﻿using EasyERP.Enum.Database;
 
-namespace EasyERP.Application.Infrastructure.Contract
+namespace EasyERP.Contract.Infrastructure
 {
     public interface IFilterRepository<T, T2> 
     {        

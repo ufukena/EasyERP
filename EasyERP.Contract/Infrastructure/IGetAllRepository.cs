@@ -1,12 +1,12 @@
 ﻿using EasyERP.Enum.Database;
 
-namespace EasyERP.Application.Infrastructure.Contract
+namespace EasyERP.Contract.Infrastructure
 {
 
     public interface IGetAllRepository<TEntityDto>
     {        
 
-        IEnumerable<TEntityDto> GetAll(ColumnEnum columnenum);
+        Task<IEnumerable<TEntityDto>> GetAll();
 
     }
     

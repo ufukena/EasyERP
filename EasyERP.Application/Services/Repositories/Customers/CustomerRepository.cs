@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using EasyERP.Application.Context;
 using EasyERP.Application.Infrastructure.Repository;
-using EasyERP.Application.Services.Contracts.Customers;
+using EasyERP.Contract.Services.Customers;
 using EasyERP.Domain.Services.Models.Customers;
 using EasyERP.Enum.Database;
 using System.Data;
@@ -30,9 +30,15 @@ namespace EasyERP.Application.Services.Repositories.Customers
             }
         }
 
-        public IEnumerable<Customer> GetAll(ColumnEnum columnenum)
+        public async Task<IEnumerable<Customer>> GetAll()
         {
-            throw new NotImplementedException();
+            sql = "SELECT * FROM EE_VW_Customer";
+
+
+            using (IDbConnection connection = dbcontext.CreateConnection())
+            {                
+                return await connection.QueryAsync<Customer>(sql);
+            }
         }
 
 

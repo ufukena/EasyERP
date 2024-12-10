@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EasyERP.Application.Http\EasyERP.Application.Http.csproj" />
+    <ProjectReference Include="..\EasyERP.Contract\EasyERP.Contract.csproj" />
+  </ItemGroup>
+
 </Project>

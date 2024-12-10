@@ -1,6 +1,6 @@
 ﻿
 
-namespace EasyERP.Application.Infrastructure.Contract
+namespace EasyERP.Contract.Infrastructure
 {
     public interface ICRUDRepository<TEntity>
     {

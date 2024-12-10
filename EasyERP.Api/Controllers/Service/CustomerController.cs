@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyERP.Api.Controllers.Service
 {
-    [Route("customers")]
+    [Route("customer")]
     [ApiController]
 
-    public class CustomersController : ControllerBase
+    public class CustomerController : ControllerBase
     {
 
         private readonly ServiceBase serviceBase;
 
-        public CustomersController(ServiceBase _serviceBase)
+        public CustomerController(ServiceBase _serviceBase)
         {
             serviceBase = _serviceBase;
         }
@@ -20,12 +20,22 @@ namespace EasyERP.Api.Controllers.Service
 
 
         [Route("get/{id}")]
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Get(Guid id)
         {
             var result = await serviceBase.CustomerRepository.Get(id);
             return Ok(result);
         }
+
+
+        [Route("getall")]
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await serviceBase.CustomerRepository.GetAll();
+            return Ok(result);
+        }
+
 
     }
 }

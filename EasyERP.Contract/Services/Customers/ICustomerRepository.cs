@@ -1,8 +1,7 @@
-﻿using EasyERP.Application.Infrastructure.Contract;
+﻿using EasyERP.Contract.Infrastructure;
 using EasyERP.Domain.Services.Models.Customers;
 
-
-namespace EasyERP.Application.Services.Contracts.Customers
+namespace EasyERP.Contract.Services.Customers
 {
     public interface ICustomerRepository : ICRUDRepository<Customer>, IGetAllRepository<Customer>
     {

@@ -2,7 +2,7 @@
 using System.Text;
 
 
-namespace EasyERP.Application.Helper
+namespace EasyERP.Application.Http.Helper
 {
     public static class JsonContentHelper
     {
