@@ -1,16 +1,17 @@
-﻿using EasyERP.Enum.Database;
-
-namespace EasyERP.Contract.Infrastructure
+﻿namespace EasyERP.Contract.Infrastructure
 {
-    public interface IFilterRepository<T, T2> 
-    {        
-        IEnumerable<T> GetAll(ColumnEnum columnenum, string datefilter, T2 trnTypeEnum);       
-    }
-
 
     public interface IFilterRepository<T>
     {
-        IEnumerable<T> GetAll(ColumnEnum columnenum, string datefilter);        
+        IEnumerable<T> GetAll(string datefilter);        
+
+    }
+
+
+    public interface IFilterAsyncRepository<T>
+    {
+        IEnumerable<T> GetAllAsync(string datefilter);
+
     }
 
 

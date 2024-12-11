@@ -1,14 +1,18 @@
-﻿using EasyERP.Enum.Database;
+﻿using EasyERP.Domain.Services.Models.Customers;
+
 
 namespace EasyERP.Contract.Infrastructure
 {
 
     public interface IGetAllRepository<TEntityDto>
     {        
-
-        Task<IEnumerable<TEntityDto>> GetAll();
-
+        List<Customer> GetAll();
     }
-    
+
+    public interface IGetAllAsyncRepository<TEntityDto>
+    {
+        Task<List<Customer>> GetAllAsync();
+    }
+
 
 }

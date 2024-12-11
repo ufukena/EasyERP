@@ -1,33 +1,25 @@
 ﻿
 
+using System.Net;
+
 namespace EasyERP.Contract.Infrastructure
 {
     public interface ICRUDRepository<TEntity>
-    {
-        
-        Task<TEntity> Get(Guid id);
-
-        int Create(TEntity entity);
-
-        int Update(TEntity entity);
-
-        int Delete(TEntity entity);
+    {        
+        TEntity Get(Guid id);
+        TEntity Create(TEntity entity);
+        TEntity Update(TEntity entity);
+        void Delete(TEntity entity);
 
     }
 
-    public interface ICRUDRepository<TEntity,TParameter>
+    public interface ICRUDAsyncRepository<TEntity>
     {
-        
-        TEntity Get(int id);
-
-        TEntity Create(TParameter entity);
-
-        TEntity Update(TParameter entity);
-
-        int Delete(TParameter entity);
+        Task<TEntity> GetAsync(Guid id);
+        Task<TEntity> CreateAsync(TEntity entity);
+        Task<TEntity> UpdateAsync(TEntity entity);
+        Task<HttpStatusCode> DeleteAsync(TEntity entity);
 
     }
-
     
-
 }

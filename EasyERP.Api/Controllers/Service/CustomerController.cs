@@ -1,4 +1,5 @@
 ﻿using EasyERP.Application.Adapters;
+using EasyERP.Domain.Services.Models.Customers;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -36,6 +37,15 @@ namespace EasyERP.Api.Controllers.Service
             return Ok(result);
         }
 
+        [Route("delete")]
+        [HttpPost]
+        public async Task<IActionResult> Delete([FromBody] Customer customer)
+        {
+            await serviceBase.CustomerRepository.Delete(customer);
+            return Ok();
+        }
+
+      
 
     }
 }

@@ -9,46 +9,41 @@ namespace EasyERP.UI.Components.Pages.Customers
     {
 
         [Inject] ICustomerRepository customerRepository { get; set; }
-        public IEnumerable<Customer> customers { get; set; }
+        public List<Customer>? customers { get; set; } = new();
 
 
 
-        protected async override Task OnInitializedAsync()
-        {
-            try
-            {
-                await base.OnInitializedAsync();
-                customers = await customerRepository.GetAll();
-
-            }
-            catch (Exception)
-            {
-
-                // NavigationManager.NavigateTo("/", true);
-            }
-
-        }
-
-        //protected async override Task OnAfterRenderAsync(bool firstRender)
+        //protected async override Task OnInitializedAsync()
         //{
-        //    if (firstRender)
+        //    try
+        //    {                
+        //        customers = await customerRepository.GetAllList();
+        //    }
+        //    catch (Exception)
         //    {
-        //        if (PostService is not null && PostId is not null)
-        //        {
-        //            Guid postGuid = new Guid(PostId);
 
-        //            PostVM = await PostService.GetPost(postGuid);
-        //            ConfigureDisplayPost(PostVM);
-        //            HeadingVM = PostVM.HeadingDTO;
-        //            await InvokeAsync(StateHasChanged);
-        //        }
-
-        //        customers = await customerRepository.GetAll();
-        //        await InvokeAsync(StateHasChanged);
+        //        // NavigationManager.NavigateTo("/", true);
         //    }
 
-        //    await base.OnAfterRenderAsync(firstRender);
         //}
+
+        protected async override Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {                
+                customers = await customerRepository.GetAll();
+                await InvokeAsync(StateHasChanged);
+            }
+
+            await base.OnAfterRenderAsync(firstRender);
+        }
+
+        protected async Task Delete(Customer customer)
+        {
+            await customerRepository.Delete(customer);
+            customers = await customerRepository.GetAll();
+        }
+
 
 
     }

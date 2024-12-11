@@ -1,11 +1,10 @@
 ﻿using Dapper;
 using EasyERP.Application.Context;
 using EasyERP.Application.Infrastructure.Repository;
+using EasyERP.Contract.Infrastructure;
 using EasyERP.Contract.Services.Customers;
 using EasyERP.Domain.Services.Models.Customers;
-using EasyERP.Enum.Database;
 using System.Data;
-
 
 namespace EasyERP.Application.Services.Repositories.Customers
 {
@@ -18,7 +17,7 @@ namespace EasyERP.Application.Services.Repositories.Customers
             dbcontext = _dbcontext;
         }
 
-        public async Task<Customer> Get(Guid id)
+        public Customer? Get(Guid id)
         {
             sql = "SELECT * FROM EE_VW_Customer WHERE Id = @Id";
 
@@ -26,36 +25,45 @@ namespace EasyERP.Application.Services.Repositories.Customers
             using (IDbConnection connection = dbcontext.CreateConnection())
             {
                 var parameters = new { Id = id };
-                return await connection.QuerySingleOrDefaultAsync<Customer>(sql, parameters);
+                return connection.QuerySingleOrDefault<Customer>(sql, parameters);
             }
         }
 
-        public async Task<IEnumerable<Customer>> GetAll()
+       
+        public List<Customer> GetAll()
         {
             sql = "SELECT * FROM EE_VW_Customer";
 
 
             using (IDbConnection connection = dbcontext.CreateConnection())
-            {                
-                return await connection.QueryAsync<Customer>(sql);
+            {
+                var result = connection.Query<Customer>(sql);
+                return result.ToList();
             }
         }
 
 
-        public int Create(Customer entity)
+        public Customer Create(Customer entity)
         {
             throw new NotImplementedException();
         }
 
-        public int Delete(Customer entity)
-        {
-            throw new NotImplementedException();
-        }       
-
-        public int Update(Customer entity)
+        public Customer Update(Customer entity)
         {
             throw new NotImplementedException();
         }
 
+        public void Delete(Customer entity)
+        {
+            sql = "UPDATE EE_Customer SET DeletedFlg = 1 WHERE Id = @Id";
+
+            using (IDbConnection connection = dbcontext.CreateConnection())
+            {
+                var parameters = new { entity.Id };
+                connection.Execute(sql, parameters);                
+            }
+        }
+
+       
     }
 }
