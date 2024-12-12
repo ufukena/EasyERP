@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EasyERP.Application.Http.Helper
 {
-    public static class JsonContentHelper
+    internal static class JsonContentHelper
     {
 
         public static StringContent CreateJsonContent(object obj)

@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 namespace EasyERP.Application.Http.Helper
 {
 
-    public static class HttpClientHelper
+    internal static class HttpClientHelper
     {
         public static HttpClient GetClient()
         {

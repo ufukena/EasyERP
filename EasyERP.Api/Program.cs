@@ -4,7 +4,8 @@ using System;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddTransient<ServiceBase>();
+builder.Services.AddSingleton<ServiceBase>();
+
 
 // Add services to the container.
 

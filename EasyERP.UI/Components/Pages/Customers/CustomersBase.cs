@@ -1,37 +1,27 @@
-﻿using EasyERP.Contract.Services.Customers;
+﻿using EasyERP.Application.Http.Adapters;
 using EasyERP.Domain.Services.Models.Customers;
-using Microsoft.AspNetCore.Components;
+using EasyERP.UI.Infrastructure;
 
 
 namespace EasyERP.UI.Components.Pages.Customers
 {
-    public class CustomersBase : ComponentBase
+    public class CustomersBase : MainComponentBase
     {
-
-        [Inject] ICustomerRepository customerRepository { get; set; }
+        
         public List<Customer>? customers { get; set; } = new();
+        public bool isModalFired = false;
 
 
-
-        //protected async override Task OnInitializedAsync()
-        //{
-        //    try
-        //    {                
-        //        customers = await customerRepository.GetAllList();
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        // NavigationManager.NavigateTo("/", true);
-        //    }
-
-        //}
+        
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
-            {                
-                customers = await customerRepository.GetAll();
+            {
+                if (!isModalFired) {
+                    await LoadData();
+                }
+                
                 await InvokeAsync(StateHasChanged);
             }
 
@@ -40,10 +30,20 @@ namespace EasyERP.UI.Components.Pages.Customers
 
         protected async Task Delete(Customer customer)
         {
-            await customerRepository.Delete(customer);
-            customers = await customerRepository.GetAll();
+            await ServiceHttpBase.Customer.DeleteAsync(customer); 
+            customers = await ServiceHttpBase.Customer.GetAllAsync();
+
         }
 
+        protected async Task LoadData()
+        {
+            customers = await ServiceHttpBase.Customer.GetAllAsync();
+        }
+
+        protected async Task ModalFired(bool modalFired)
+        {
+            isModalFired = modalFired;
+        }
 
 
     }

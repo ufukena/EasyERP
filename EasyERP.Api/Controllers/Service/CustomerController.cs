@@ -1,4 +1,5 @@
-﻿using EasyERP.Application.Adapters;
+﻿using EasyERP.Api.Infrastructure;
+using EasyERP.Application.Adapters;
 using EasyERP.Domain.Services.Models.Customers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,14 +9,15 @@ namespace EasyERP.Api.Controllers.Service
     [Route("customer")]
     [ApiController]
 
-    public class CustomerController : ControllerBase
+    public class CustomerController : MainControllerBase
     {
 
-        private readonly ServiceBase serviceBase;
+        private readonly ServiceBase ServiceBase;
+
 
         public CustomerController(ServiceBase _serviceBase)
         {
-            serviceBase = _serviceBase;
+            ServiceBase = _serviceBase;
         }
 
 
@@ -24,7 +26,7 @@ namespace EasyERP.Api.Controllers.Service
         [HttpGet]
         public async Task<IActionResult> Get(Guid id)
         {
-            var result = await serviceBase.CustomerRepository.Get(id);
+            var result = await ServiceBase.Customer.GetAsync(id);
             return Ok(result);
         }
 
@@ -33,7 +35,7 @@ namespace EasyERP.Api.Controllers.Service
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result = await serviceBase.CustomerRepository.GetAll();
+            var result = await ServiceBase.Customer.GetAllAsync();
             return Ok(result);
         }
 
@@ -41,7 +43,7 @@ namespace EasyERP.Api.Controllers.Service
         [HttpPost]
         public async Task<IActionResult> Delete([FromBody] Customer customer)
         {
-            await serviceBase.CustomerRepository.Delete(customer);
+            await ServiceBase.Customer.DeleteAsync(customer);
             return Ok();
         }
 

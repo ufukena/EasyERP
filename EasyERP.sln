@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Common", "01.Common", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyERP.Application.Http", "EasyERP.Application.Http\EasyERP.Application.Http.csproj", "{18709E66-2BEB-4151-8603-62E954357335}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyERP.Contract", "EasyERP.Contract\EasyERP.Contract.csproj", "{1067467C-3D91-4699-A30E-6E5FBE8A95F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyERP.Contract", "EasyERP.Contract\EasyERP.Contract.csproj", "{1067467C-3D91-4699-A30E-6E5FBE8A95F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

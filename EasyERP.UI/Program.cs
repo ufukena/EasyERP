@@ -1,13 +1,13 @@
-using EasyERP.Application.Http.Services.Repositories.Customers;
-using EasyERP.Contract.Services.Customers;
+using EasyERP.Application.Http.Adapters;
 using EasyERP.UI.Components;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
-builder.Services.AddSingleton<ICustomerRepository, CustomerAsyncRepository>();
+builder.Services.AddSingleton<ServiceHttpBase>();
 
 
 
