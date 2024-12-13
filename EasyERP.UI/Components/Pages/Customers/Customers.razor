@@ -198,7 +198,7 @@
 
                     <div class="d-flex flex-wrap gap-1">
                         <a href="#" class="btn btn-success bg-gradient" data-bs-toggle="modal" data-bs-target="#signup-modal"><i class="ti ti-plus me-1"></i> New Appointment</a>
-                        <a href="#" class="btn btn-secondary bg-gradient" @onclick="(() => LoadData())"><i class="ti ti-file-import me-1"></i> Import</a>
+                        @* <a href="#" class="btn btn-secondary bg-gradient" @onclick="(() => LoadData())"><i class="ti ti-file-import me-1"></i> Import</a> *@
                     </div>
                 </div>
                
@@ -239,7 +239,8 @@
                                             <div class="hstack gap-1">
                                                 <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye"></i></a>
                                                 <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
-                                                <a href="javascript:void(0);" @onclick="(() => Delete(item))" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash"></i></a>
+                                                @* <a href="javascript:void(0);" @onclick="(() => Delete(item))" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash"></i></a> *@
+                                                <button @onclick="(() => Delete(item))" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -259,4 +260,4 @@
 
 
 
-<CustomersModal LoadData="LoadData" IsModalFired="ModalFired" />
+<CustomersModal LoadData="LoadData"  />

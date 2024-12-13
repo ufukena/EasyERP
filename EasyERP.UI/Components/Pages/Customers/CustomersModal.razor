@@ -1,44 +1,55 @@
 ﻿@inherits CustomersModalBase
 
 
-<!-- SignIn modal content -->
-<div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="auth-brand text-center mt-2 mb-4 position-relative top-0">
-                    <a href="index-2.html" class="logo-dark">
-                        <span><img src="assets/images/logo-dark.png" alt="dark logo" height="22"></span>
-                    </a>
-                    <a href="index-2.html" class="logo-light">
-                        <span><img src="assets/images/logo.png" alt="logo" height="22"></span>
-                    </a>
-                </div>
 
-                <form action="#" class="ps-3 pe-3">
-                    <div class="mb-3">
-                        <label for="emailaddress1" class="form-label">Email address</label>
-                        <input class="form-control" type="email" id="emailaddress1" required="" placeholder="john@deo.com">
+    <!-- SignIn modal content -->
+    <div id="signup-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="auth-brand text-center mt-2 mb-4 position-relative top-0">
+                        <a href="index-2.html" class="logo-dark">
+                            <span><img src="assets/images/logo-dark.png" alt="dark logo" height="22"></span>
+                        </a>
+                        <a href="index-2.html" class="logo-light">
+                            <span><img src="assets/images/logo.png" alt="logo" height="22"></span>
+                        </a>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="password1" class="form-label">Password</label>
-                        <input class="form-control" type="password" required="" id="password1" placeholder="Enter your password">
-                    </div>
+                   <form Model="@customer">
 
-                    <div class="mb-3">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="RememberCheckBox">
-                            <label class="form-check-label" for="RememberCheckBox">Remember me</label>
+
+                       @*  <div class="mb-3">
+                            <label for="emailaddress1" class="form-label">Email address</label>
+                            <input class="form-control" type="email" id="emailaddress1" required="" placeholder="john@deo.com">
                         </div>
-                    </div>
 
-                    <div class="mb-3 text-center">
-                        <button class="btn rounded-pill btn-primary" @onclick="(() => Save())">Sign In</button>
-                        @* <a href="#" class="btn btn-secondary bg-gradient" @onclick="(() => Save())"><i class="ti ti-file-import me-1"></i> Import</a> *@
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                        <div class="mb-3">
+                            <label for="password1" class="form-label">Password</label>
+                            <input class="form-control" type="password" bind="@customer.CustomerAddress" placeholder="Enter your password">
+
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="RememberCheckBox">
+                                <label class="form-check-label" for="RememberCheckBox">Remember me</label>
+                            </div>
+                        </div> *@
+
+                        <div class="mb-3 text-center">
+
+                        <button class="btn rounded-pill btn-primary" data-bs-dismiss="modal">Sign In</button>
+                            @* <a href="#" class="btn btn-secondary bg-gradient" @onclick="(() => Save())"><i class="ti ti-file-import me-1"></i> Import</a> *@
+                        </div>
+                    </form>
+
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <!-- /.modal -->
+
+

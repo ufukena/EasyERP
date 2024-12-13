@@ -1,5 +1,6 @@
 using EasyERP.Application.Http.Adapters;
 using EasyERP.UI.Components;
+using EasyERP.Utils.Common;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 builder.Services.AddSingleton<ServiceHttpBase>();
+builder.Services.AddSingleton<AppManager>();
 
 
 

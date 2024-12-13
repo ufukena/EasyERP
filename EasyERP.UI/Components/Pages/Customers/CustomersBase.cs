@@ -1,6 +1,7 @@
 ﻿using EasyERP.Application.Http.Adapters;
 using EasyERP.Domain.Services.Models.Customers;
 using EasyERP.UI.Infrastructure;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace EasyERP.UI.Components.Pages.Customers
@@ -9,20 +10,17 @@ namespace EasyERP.UI.Components.Pages.Customers
     {
         
         public List<Customer>? customers { get; set; } = new();
-        public bool isModalFired = false;
+        //public bool isModalFired = true;
 
-
-        
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                if (!isModalFired) {
-                    await LoadData();
-                }
-                
+               
+                await LoadData();
                 await InvokeAsync(StateHasChanged);
+                
             }
 
             await base.OnAfterRenderAsync(firstRender);
@@ -40,12 +38,8 @@ namespace EasyERP.UI.Components.Pages.Customers
             customers = await ServiceHttpBase.Customer.GetAllAsync();
         }
 
-        protected async Task ModalFired(bool modalFired)
-        {
-            isModalFired = modalFired;
-        }
 
-
+        
     }
 
 }

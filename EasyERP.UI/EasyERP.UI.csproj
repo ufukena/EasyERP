@@ -10,6 +10,7 @@
     <ProjectReference Include="..\EasyERP.Application.Http\EasyERP.Application.Http.csproj" />
     <ProjectReference Include="..\EasyERP.Application\EasyERP.Application.csproj" />
     <ProjectReference Include="..\EasyERP.Contract\EasyERP.Contract.csproj" />
+    <ProjectReference Include="..\EasyERP.Utils\EasyERP.Utils.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using EasyERP.UI.Infrastructure;
+﻿using EasyERP.Domain.Services.Models.Customers;
+using EasyERP.UI.Infrastructure;
+using EasyERP.Utils.Common;
 using Microsoft.AspNetCore.Components;
 
 namespace EasyERP.UI.Components.Pages.Customers
@@ -7,14 +9,31 @@ namespace EasyERP.UI.Components.Pages.Customers
     {
         [Parameter] public EventCallback<bool> LoadData { get; set; }
 
-        [Parameter] public EventCallback<bool> IsModalFired { get; set; }
+        [Parameter] public bool IsVisible { get; set; } = true;
+        [Parameter] public EventCallback<bool> Save { get; set; }
 
         
-        public void Save()
+        public Customer customer;
+
+
+        protected override async Task OnInitializedAsync()
         {
-            
+            customer = new Customer();
+        }
+
+        public void HandleValidSubmit()
+        {
+            AppManager.PageRender = true;
             LoadData.InvokeAsync();
-            IsModalFired.InvokeAsync(true);
+            //IsVisible = false;
+            //IsVisibleChanged.InvokeAsync(IsVisible);
+        }
+
+        public void Save2()
+        {
+            AppManager.PageRender = true;
+            LoadData.InvokeAsync();
+            IsVisible = false;            
         }
 
     }
